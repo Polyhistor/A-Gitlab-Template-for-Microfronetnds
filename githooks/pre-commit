@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "running pre-commit hook..."
+
+# run lint and tests
+pnpm run lint-staged
+    
+if [ $? = 0 ]; then
+    exit 0 
+else
+    echo "Failed to pass lint / tests. Please make sure you format your files correctly, check all tests have passed and try again."
+    exit 1
+fi
